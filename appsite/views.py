@@ -3,7 +3,7 @@ import cv2
 from django.http import JsonResponse
 import numpy as np
 from django.shortcuts import redirect, render
-
+import threading
 
 def index(request):
     return render(request, "app/index.html")
@@ -14,11 +14,13 @@ def bienvenido(request):
 
 
 def start_camera(request):
-    return JsonResponse({'redirect_url': '/welcome/'})
+
+    def stop_camera():
+        global stop_flag
+        stop_flag = True
 
     def detect_bounding_box(vid):
-        face_classifier = cv2.CascadeClassifier(
-            '/haarcascade_frontalface_default.xml')
+        face_classifier = cv2.CascadeClassifier('/haarcascade_frontalface_default.xml')
         I_gris = cv2.cvtColor(video_frame, cv2.COLOR_BGR2GRAY)
         faces = face_classifier.detectMultiScale(I_gris, 1.1, 5)
 
@@ -27,9 +29,14 @@ def start_camera(request):
 
         return faces
 
+    global stop_flag
+    stop_flag = False
+
+    threading.Timer(10.0, stop_camera).start()
+
     video_capture = cv2.VideoCapture(0)
 
-    while True:
+    while not stop_flag:
         result, video_frame = video_capture.read()  # read frames from the video
         if result is False:
             break  # terminate the loop if the frame is not read successfully
@@ -46,4 +53,4 @@ def start_camera(request):
     video_capture.release()
     cv2.destroyAllWindows()
 
-    return JsonResponse({'status': 'success'})
+    return JsonResponse({'redirect_url': 'http://127.0.0.1:8000/welcome/'})

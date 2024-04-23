@@ -5,23 +5,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login con Reconocimiento Facial</title>
     {% load static %}
-    <link rel="icon" type="image/x-icon" href="{% static 'css/assets/favicon.png' %}">
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="{% static 'css/assets/favicon.png' %}"
+    />
+    <link rel="stylesheet" href="{% static 'css/styles/index.css' %}" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div class="login-container">
-      <h2>Login con Reconocimiento Facial</h2>
-      <button id="start-camera">Encender Cámara</button>
+      <div class="title-container">
+        <svg
+          width="64"
+          height="64"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path
+            d="M5 7h1a2 2 0 0 0 2 -2a1 1 0 0 1 1 -1h6a1 1 0 0 1 1 1a2 2 0 0 0 2 2h1a2 2 0 0 1 2 2v9a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-9a2 2 0 0 1 2 -2"
+          />
+          <path d="M9.5 15a3.5 3.5 0 0 0 5 0" />
+          <path d="M15 11l.01 0" />
+          <path d="M9 11l.01 0" />
+        </svg>
+        <h2>Sign In Facial</h2>
+      </div>
+      <button id="start-camera">Start</button>
     </div>
 
     <script>
       document
         .getElementById("start-camera")
         .addEventListener("click", function () {
-          fetch("/app/start_camera/")
-            .then((response) => {
-              if (response.ok) {
+          debugger;
+          fetch("/start_camera/")
+            .then((response) => response.json())
+            .then((data) => {
+              // Agrega la variable data aquí
+              debugger;
+              if (data.redirect_url) {
+                // Usa data en lugar de response
                 console.log("Cámara encendida correctamente");
                 window.location.href = data.redirect_url;
               } else {
@@ -29,6 +61,7 @@
               }
             })
             .catch((error) => {
+              debugger;
               console.error("Error:", error);
             });
         });
