@@ -29,8 +29,14 @@ h1 {
   margin-bottom: 20px;
 }
 
+h2 {
+  color: #fff;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
 p {
-  color: #666;
+  color: #666666;
   font-size: 20px;
   line-height: 1.6;
 }

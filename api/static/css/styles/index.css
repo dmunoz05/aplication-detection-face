@@ -1,5 +1,6 @@
 :root {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color-scheme: dark light;
 }
 
 body {
@@ -16,12 +17,11 @@ body {
 .login-container {
   width: 300px;
   padding: 20px;
-  background-color: rgba(255, 255, 255, 0.8);
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
-.login-container h2 {
+.login-container h1 {
   text-align: center;
   margin-bottom: 20px;
 }
@@ -34,7 +34,7 @@ body {
 }
 
 .login-container button {
-  width: 100%;
+  /* width: 100%;
   padding: 15px;
   border: none;
   border-radius: 5px;
@@ -42,9 +42,26 @@ body {
   color: #fff;
   cursor: pointer;
   font-size: 16px;
-  font-weight: bold;
+  font-weight: bold; */
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.164);
+  background-color: #0056b3;
+  cursor: pointer;
+  transition-duration: .3s;
+  overflow: hidden;
+  position: relative;
 }
 
-.login-container button:hover {
-  background-color: #0056b3;
+.content-btn-camera {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
 }

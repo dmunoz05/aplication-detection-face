@@ -20,8 +20,15 @@
   </head>
   <body>
     <div>
-      <h1>Bienvenido a nuestra aplicación</h1>
-      <p>¡Gracias por visitarnos! Esta es la página de bienvenida.</p>
+      <h1>Bienvenido a Sing In Face</h1>
+      <h2 id="person"></h2>
+      <p>¡Tu inicio de sesion es correcto!</p>
     </div>
+
+    <script>
+      const searchPerson = window.location.search
+      const person = searchPerson.split("=")[1].replace("/", "")
+      document.getElementById("person").innerHTML = person
+    </script>
   </body>
 </html>
