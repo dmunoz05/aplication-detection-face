@@ -91,7 +91,7 @@ def aplicate_model(model, frame):
 
     Prediccion = model.predict(Matriz_Características)
 
-    Nombres = ["Michael", "Freyner", "Camilo", "Viviana", "Daniel", "Yesid", "Alfonso"]
+    Nombres = ["Daniel", "Freyner", "Camilo", "Viviana", "Michael", "Yesid", "Alfonso"]
 
     return Nombres[int(Prediccion[0])-1]
 

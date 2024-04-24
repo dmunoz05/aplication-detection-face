@@ -1,4 +1,4 @@
 /venv
-/appsite/__pycache__/
-/appfaces/__pycache__/
+api/__pycache__
+appfaces/__pycache__
 db.sqlite3

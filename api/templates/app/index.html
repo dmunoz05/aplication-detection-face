@@ -48,12 +48,10 @@
       document
         .getElementById("start-camera")
         .addEventListener("click", function () {
-          debugger;
           fetch("/start_camera/")
             .then((response) => response.json())
             .then((data) => {
               // Agrega la variable data aquí
-              debugger;
               if (data.redirect_url && data.scan) {
                 // Usa data en lugar de response
                 console.log("Cámara encendida correctamente");

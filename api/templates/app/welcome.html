@@ -26,9 +26,14 @@
     </div>
 
     <script>
-      const searchPerson = window.location.search
-      const person = searchPerson.split("=")[1].replace("/", "")
-      document.getElementById("person").innerHTML = person
+      debugger;
+      const searchPerson = window.location.search;
+      if (searchPerson !== "") {
+        const person = searchPerson.split("=")[1].replace("/", "");
+        document.getElementById("person").innerHTML = person;
+      } else {
+        window.location.href = "http://127.0.0.1:8000/";
+      }
     </script>
   </body>
 </html>
