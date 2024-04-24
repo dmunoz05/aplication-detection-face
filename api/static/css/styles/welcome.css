@@ -24,19 +24,22 @@ body {
 }
 
 h1 {
+  text-align: center;
   color: #fff;
   font-size: 38px;
   margin-bottom: 20px;
 }
 
 h2 {
+  text-align: center;
   color: #fff;
   font-size: 28px;
   margin-bottom: 20px;
 }
 
 p {
-  color: #666666;
+  text-align: center;
+  color: #fff;
   font-size: 20px;
   line-height: 1.6;
 }
